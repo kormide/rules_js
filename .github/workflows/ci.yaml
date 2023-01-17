@@ -146,6 +146,11 @@ jobs:
                       bzlmodEnabled: true
                     - bazelversion: 5.1.1
                       bzlmodEnabled: true
+                    # Don't run WORKSPACE-only e2e tests under bzlmod
+                    - folder: e2e/rules_foo
+                      bzlmodEnabled: true
+                    - folder: e2e/workspace
+                      bzlmodEnabled: true
                     # TODO: un-exclude the following bzlmod tests once they work
                     - folder: .
                       bzlmodEnabled: true
@@ -169,8 +174,6 @@ jobs:
                       bzlmodEnabled: true
                     - folder: e2e/pnpm_workspace
                       bzlmodEnabled: true
-                    - folder: e2e/rules_foo
-                      bzlmodEnabled: true
                     - folder: e2e/update_pnpm_lock_with_import
                       bzlmodEnabled: true
                     - folder: e2e/vendored_node
@@ -178,8 +181,6 @@ jobs:
                     - folder: e2e/webpack_devserver
                       bzlmodEnabled: true
                     - folder: e2e/webpack_devserver_esm
-                      bzlmodEnabled: true
-                    - folder: e2e/workspace
                       bzlmodEnabled: true
 
         # Steps represent a sequence of tasks that will be executed as part of the job
